@@ -1,0 +1,7 @@
+{
+  "name": "DI00_FirstAPP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
