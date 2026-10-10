@@ -1,0 +1,7 @@
+{
+  "name": "secondTApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
