@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{titulo}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- INTERPOLACIÓN {{ }}: Muestra los valores en HTML-->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Opción 1</ion-card-title>
+      <ion-card-subtitle>Opción 1 Subtítulo</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Muestra propiedades del componente directamente en el template</p>
+      <ion-note> Título: <strong>{{titulo}}</strong></ion-note>
+      <br />
+      <ion-note> Descripción: <strong>{{descripcion}}</strong></ion-note>
+      <br />
+      <ion-note> Expresión 3 x 4 = <strong>{{3 * 4}}</strong></ion-note>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- PROPERTY BINDING []: Vincula una propiedad del DOM con una variable -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Opción 2</ion-card-title>
+      <ion-card-subtitle>Opción 2 Subtítulo </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Vincula propiedades del componente a variables del TypeScript.</p>
+      <ion-button [color]="colorBoton" [disabled]="botonDeshabilitado">
+        color = {{colorBoton}}
+      </ion-button>
+
+      <!-- (click) es event binding -->
+      <ion-button
+        color="secondary"
+        (click)="botonDeshabilitado  = !botonDeshabilitado"
+      >
+        {{botonDeshabilitado? "Habilitar" : "Deshabilitar"}}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- EVENT BINDING ( ): Escucha los eventos del DOM y llama a los métodos -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Opción 3</ion-card-title>
+      <ion-card-subtitle>Opción 3 Subtítulo </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- Escucha los elementos del DOM de lo que se haga en la app -->
+      <p>Contador: {{contador}}</p>
+      <ion-button [color]="colorBoton" (click)="incrementar()">
+        Incrementar
+      </ion-button>
+
+      <ion-button (click)="reiniciar()">Reiniciar </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- COMPONENTES IONIC: ion-list, ion-item, ion-avatar, ion-badge  -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Opción 4</ion-card-title>
+      <ion-card-subtitle>Opción 4 Subtítulo </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- Escucha los elementos del DOM de lo que se haga en la app -->
+      <p>Lista de alumnos haciendo uso de un for</p>
+    </ion-card-content>
+    <ion-list>
+      @for (alumno of alumnos; track alumno.nombre) {
+      <ion-item>
+        <ion-avatar slot="start">
+          <img
+            [src]="'https://ui-avatars.com/api/?name=' + alumno.nombre +  '&background=random'"
+            [alt]="alumno.nombre"
+          />
+        </ion-avatar>
+        <ion-label>{{alumno.nombre}} </ion-label>
+
+        <ion-badge slot="end" [color]="colorNota(alumno.nota)"
+          >{{alumno.nota}}</ion-badge
+        >
+      </ion-item>
+      }
+    </ion-list>
+  </ion-card>
+</ion-content>

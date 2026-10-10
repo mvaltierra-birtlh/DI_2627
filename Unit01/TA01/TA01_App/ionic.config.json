@@ -1,0 +1,7 @@
+{
+  "name": "TA01_App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
