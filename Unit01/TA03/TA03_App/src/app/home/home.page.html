@@ -1,0 +1,53 @@
+<!--
+  TAREA TA03 – HomePage
+  Implementa los TODOs siguiendo los apartados indicados en la teoría.
+-->
+
+<!-- HEADER  -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <strong>thirdTApp</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- CONTENT  -->
+<ion-content [fullscreen]="true">
+
+  <ion-item>
+    <ion-input
+      [(ngModel)] = "busqueda"
+      placeholder = "Buscar elemento ..." >
+    </ion-input>
+  </ion-item>
+
+ 
+  <ion-list>
+    @for (elemento of elementosFiltrados; track elemento.id) {
+     
+    <!-- TODO: Añadir llamada al método verDetalle (TA03) -->
+      <ion-item button (click) = "verDetalle(elemento)">
+          <ion-label>
+            <h2> {{elemento.nombre}} </h2>
+            <p id="descripcion"> {{elemento.descripcion}} </p>
+          </ion-label>
+      </ion-item>
+    }
+  </ion-list>
+
+  <ion-button expand="block" [disabled]="!hayElementos" (click)="mostrarToast()">
+    <strong>Mostrar mensaje</strong>
+  </ion-button>
+
+
+</ion-content>
+
+<!-- FOOTER -->
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <strong>Footer Tarea TA02 - Angular + Ionic</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
